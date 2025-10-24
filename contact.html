@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - Eram's Realty</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- Fonts from our theme -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- TAILWIND CONFIG from our theme -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0A2342",     // Deep Navy (For text and dark BGs)
+                        "secondary": "#C4A265",   // Luxury Gold (For buttons and accents)
+                        "accent": "#D9534F",      // Clear Red (For tags and hovers)
+                        "background-light": "#F9FAFB", // Light Gray (bg-gray-50)
+                        "subtle-bg": "#FDFBF6",   // Very light cream
+                        "card-light": "#FFFFFF",      // Pure White
+                        "text-primary": "#0A2342",    // Navy (Main text)
+                        "text-secondary": "#555555",  // Dark Gray (Sub-text)
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "sans": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0 },
+                            '100%': { opacity: 1 },
+                        },
+                        slideInUp: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.5s ease-out',
+                        slideInUp: 'slideInUp 0.5s ease-out forwards',
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <!-- STYLES from our theme -->
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px; /* Ensure icons are consistently sized */
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            transform: translateY(20px);
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<!-- BODY class from our theme -->
+<body class="bg-background-light font-sans text-text-primary transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col">
+    
+    <!-- HEADER from our theme -->
+    <header class="sticky top-0 z-50 w-full border-b border-solid border-secondary/20 bg-background-light/80 backdrop-blur-sm">
+        <div class="container mx-auto flex items-center justify-between whitespace-nowrap px-4 py-2">
+            <a href="index.html" class="flex items-center" aria-label="Eram's Realty Homepage">
+                <img src="470437837_122210471816074068_8689333781265718803_n.jpg" alt="Eram's Realty Logo" class="h-12 w-auto">
+            </a>
+            <nav class="hidden items-center gap-9 lg:flex">
+                <a class="text-text-primary hover:text-secondary text-sm font-medium leading-normal transition-colors" href="property-listings.html">Buy</a>
+                <a class="text-text-primary hover:text-secondary text-sm font-medium leading-normal transition-colors" href="property-listings.html">Rent</a>
+                <a class="text-text-primary hover:text-secondary text-sm font-medium leading-normal transition-colors" href="#">Sell</a>
+                <a class="text-text-primary hover:text-secondary text-sm font-medium leading-normal transition-colors" href="index.html#services">Services</a>
+                <a class="text-text-primary hover:text-secondary text-sm font-medium leading-normal transition-colors" href="about.html">About Us</a>
+                <!-- Set Contact as active -->
+                <a class="text-secondary text-sm font-bold leading-normal" href="contact.html">Contact</a>
+            </nav>
+            <div class="flex items-center gap-2 md:gap-4">
+                <a href="#contact-form" class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-secondary text-primary text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105 hover:shadow-lg">
+                    <span class="truncate">List Property</span>
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden text-text-primary p-2" aria-label="Open navigation menu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU from our theme -->
+    <div id="mobile-menu" class="fixed top-0 right-0 z-40 h-full w-72 translate-x-full bg-white shadow-xl lg:hidden transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="mobile-menu-close-btn" class="p-2" aria-label="Close navigation menu">
+                <span class="material-symbols-outlined text-text-primary">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center gap-6 mt-8">
+            <a class="text-text-primary hover:text-secondary text-lg font-medium" href="property-listings.html">Buy</a>
+            <a class="text-text-primary hover:text-secondary text-lg font-medium" href="property-listings.html">Rent</a>
+            <a class="text-text-primary hover:text-secondary text-lg font-medium" href="#">Sell</a>
+            <a class="text-text-primary hover:text-secondary text-lg font-medium" href="index.html#services">Services</a>
+            <a class="text-text-primary hover:text-secondary text-lg font-medium" href="about.html">About Us</a>
+            <a class="text-secondary text-lg font-bold" href="contact.html">Contact</a>
+            <a class="flex mt-4 min-w-[150px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-secondary text-primary text-base font-bold tracking-[0.015em] transition-transform hover:scale-105" href="#contact-form">
+                <span class="truncate">List Your Property</span>
+            </a>
+        </nav>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-30 bg-black/50 lg:hidden hidden" aria-hidden="true"></div>
+
+    <main class="flex flex-1 justify-center py-16 sm:py-20 lg:py-24 px-4 sm:px-8">
+        <div class="layout-content-container flex flex-col w-full max-w-6xl fade-in-section">
+            <!-- PageHeading Component -->
+            <div class="flex flex-wrap justify-between gap-3 text-center">
+                <div class="flex w-full flex-col gap-3 items-center">
+                    <!-- THEME UPDATE: font-display, text-primary -->
+                    <p class="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight text-primary">Get in Touch</p>
+                    <!-- THEME UPDATE: text-text-secondary -->
+                    <p class="text-text-secondary text-base font-normal leading-normal max-w-2xl">
+                        Whether you have a question about a property or are ready to take the next step in your real estate journey, we are here to assist you. Reach out through your preferred method below.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 mt-16">
+                <!-- Left Column: Info & Map -->
+                <div class="flex flex-col gap-12">
+                    <!-- Contact Information Block (Using info from footer) -->
+                    <div class="flex flex-col gap-8">
+                        <div class="flex items-start gap-4">
+                            <!-- THEME UPDATE: text-secondary (Gold) -->
+                            <span class="material-symbols-outlined text-secondary mt-1">call</span>
+                            <div>
+                                <p class="text-primary text-base font-semibold leading-normal">Phone Number</p>
+                                <!-- THEME UPDATE: Using footer info -->
+                                <a class="text-text-secondary text-base font-normal leading-normal hover:text-secondary transition-colors" href="tel:+919876543210">+91 98765 43210</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">mail</span>
+                            <div>
+                                <p class="text-primary text-base font-semibold leading-normal">Email Address</p>
+                                <a class="text-text-secondary text-base font-normal leading-normal hover:text-secondary transition-colors" href="mailto:contact@eramsrealty.com">contact@eramsrealty.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+                            <div>
+                                <p class="text-primary text-base font-semibold leading-normal">Office Address</p>
+                                <p class="text-text-secondary text-base font-normal leading-normal">123 Realty Lane, C-Scheme,<br />Jaipur, Rajasthan 302001</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">schedule</span>
+                            <div>
+                                <p class="text-primary text-base font-semibold leading-normal">Office Hours</p>
+                                <p class="text-text-secondary text-base font-normal leading-normal">Mon-Fri: 9:00 AM - 6:00 PM<br />Sat: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map Section -->
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-primary text-xl font-bold leading-tight">Find Our Office</h3>
+                        <div class="w-full h-80 overflow-hidden rounded-xl border border-gray-200">
+                            <!-- THEME UPDATE: Placeholder -->
+                            <img class="w-full h-full object-cover" src="https://placehold.co/600x400/0A2342/FDFBF6?text=Our+Location+in+Jaipur" alt="Map showing the location of Eram's Realty office in Jaipur" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Contact Form -->
+                <!-- THEME UPDATE: bg-card-light (White), shadow-lg -->
+                <div id="contact-form" class="bg-card-light p-8 rounded-xl shadow-lg border border-gray-100">
+                    <h2 class="text-primary text-[22px] font-bold leading-tight pb-6">Send Us a Message</h2>
+                    <form class="flex flex-col gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <label class="flex flex-col w-full">
+                                <p class="text-primary text-sm font-medium leading-normal pb-2">Name</p>
+                                <!-- THEME UPDATE: Form field styling -->
+                                <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-primary focus:outline-0 focus:ring-2 focus:ring-secondary/50 border border-gray-300 bg-background-light/50 h-12 placeholder:text-gray-400 px-4 text-base font-normal leading-normal" placeholder="Enter your full name" type="text" />
+                            </label>
+                            <label class="flex flex-col w-full">
+                                <p class="text-primary text-sm font-medium leading-normal pb-2">Email</p>
+                                <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-primary focus:outline-0 focus:ring-2 focus:ring-secondary/50 border border-gray-300 bg-background-light/50 h-12 placeholder:text-gray-400 px-4 text-base font-normal leading-normal" placeholder="you@example.com" type="email" />
+                            </label>
+                        </div>
+                        <label class="flex flex-col w-full">
+                            <p class="text-primary text-sm font-medium leading-normal pb-2">Phone Number</p>
+                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-primary focus:outline-0 focus:ring-2 focus:ring-secondary/50 border border-gray-300 bg-background-light/50 h-12 placeholder:text-gray-400 px-4 text-base font-normal leading-normal" placeholder="Enter your phone number" type="tel" />
+                        </label>
+                        <label class="flex flex-col w-full">
+                            <p class="text-primary text-sm font-medium leading-normal pb-2">Subject</p>
+                            <select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-primary focus:outline-0 focus:ring-2 focus:ring-secondary/50 border border-gray-300 bg-background-light/50 h-12 px-4 text-base font-normal leading-normal">
+                                <option>Buying Inquiry</option>
+                                <option>Selling Inquiry</option>
+                                <option>Renting Inquiry</option>
+                                <option>General Question</option>
+                            </select>
+                        </label>
+                        <label class="flex flex-col w-full">
+                            <p class="text-primary text-sm font-medium leading-normal pb-2">Message</p>
+                            <textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-primary focus:outline-0 focus:ring-2 focus:ring-secondary/50 border border-gray-300 bg-background-light/50 min-h-32 placeholder:text-gray-400 p-4 text-base font-normal leading-normal" placeholder="How can we help you?"></textarea>
+                        </label>
+                        <!-- THEME UPDATE: Button style -->
+                        <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-secondary text-primary text-base font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105 hover:shadow-lg mt-2" type="submit">
+                            <span class="truncate">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER from our theme -->
+    <footer id="contact" class="bg-primary text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3" aria-label="Eram's Realty Homepage">
+                         <div class="size-8 text-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                            </svg>
+                        </div>
+                        <h2 class="font-display text-2xl font-bold text-white">Eram's Realty</h2>
+                    </a>
+                    <p class="mt-4 text-gray-300">Your trusted partner in navigating the Jaipur real estate market. Let us help you find the key to your new home.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-secondary">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="text-gray-300 hover:text-white" href="property-listings.html">Buy</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="property-listings.html">Rent</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="#">Sell</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="about.html">About Us</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-secondary">Contact Us</h3>
+                    <ul class="mt-4 space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined !text-xl mt-0.5">location_on</span><span>123 Realty Lane, C-Scheme,<br />Jaipur, Rajasthan 302001</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined !text-xl">call</span><span>+91 98765 43210</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined !text-xl">mail</span><span>contact@eramsrealty.com</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-secondary">Follow Us</h3>
+                    <div class="mt-4 flex gap-4">
+                        <a class="text-gray-300 hover:text-white" href="#" aria-label="Facebook">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+                        </a>
+                        <a class="text-gray-300 hover:text-white" href="#" aria-label="Twitter">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                        </a>
+                        <a class="text-gray-300 hover:text-white" href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.669 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.165 3.854 3.708 2.311 6.93 2.163 8.21.11 8.582.1 11.788.1H12m0-2.163c-3.259 0-3.667.014-4.947.072C2.693.27 1.258 1.168.27 2.693.11 3.972.0 4.38.0 7.643s.11 3.67.27 4.948c.47 1.496 1.428 2.454 2.924 2.924.9.298 1.288.35 3.783.359 1.24.008 1.62.01 3.238.01s1.998-.002 3.238-.01c2.495-.008 2.883-.06 3.783-.359 1.496-.47 2.454-1.428 2.924-2.924.16-.9.27-1.288.27-3.783s-.11-2.883-.27-3.783C22.742 2.31 21.784 1.35 20.288.88c-.9-.298-1.288-.35-3.783-.359C15.26.014 14.852.0 12.0.0zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm7.846-10.405a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>© 2024 Eram's Realty. All rights reserved. | <a class="hover:text-white" href="#">Privacy Policy</a> | <a class="hover:text-white" href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- SCRIPT from our theme -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- Mobile Menu ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('mobile-menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        const openMenu = () => {
+            if (mobileMenu) mobileMenu.classList.remove('translate-x-full');
+            if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        };
+        
+        const closeMenu = () => {
+            if (mobileMenu) mobileMenu.classList.add('translate-x-full');
+            if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        };
+        
+        if (menuBtn) menuBtn.addEventListener('click', openMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        // --- Scroll Animations ---
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    });
+</script>
+</body>
+</html>
